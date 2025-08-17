@@ -2,10 +2,12 @@ package com.easterfg.mae2a.common.part;
 
 import java.util.List;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 
 import appeng.api.parts.IPartItem;
 import appeng.api.parts.IPartModel;
@@ -13,6 +15,7 @@ import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableObject;
 import appeng.api.upgrades.UpgradeInventories;
 import appeng.core.AppEng;
+import appeng.helpers.patternprovider.PatternProviderLogicHost;
 import appeng.items.parts.PartModels;
 import appeng.menu.ISubMenu;
 import appeng.menu.MenuOpener;
@@ -27,6 +30,7 @@ import com.easterfg.mae2a.common.menu.PatternProviderPlusMenu;
 import com.easterfg.mae2a.common.menu.host.PatternProviderPlusLogicHost;
 import com.easterfg.mae2a.common.menu.logic.PatternProviderPlusLogic;
 import com.easterfg.mae2a.config.MAE2AConfig;
+import com.easterfg.mae2a.integration.appflux.AppFluxCommonLoad;
 
 /**
  * @author EasterFG on 2025/4/5
@@ -116,5 +120,16 @@ public class PatternProviderPlusPart extends PatternProviderPart
     @Override
     public IUpgradeInventory getUpgrades() {
         return upgrades;
+    }
+
+    @Override
+    public void onNeighborChanged(BlockGetter level, BlockPos pos, BlockPos neighbor) {
+        super.onNeighborChanged(level, pos, neighbor);
+        if (AppFluxCommonLoad.isLoad()) {
+            var be = level.getBlockEntity(pos);
+            if (be instanceof PatternProviderLogicHost) {
+                AppFluxCommonLoad.notifyNeighbor(this.getLogic(), pos, neighbor);
+            }
+        }
     }
 }

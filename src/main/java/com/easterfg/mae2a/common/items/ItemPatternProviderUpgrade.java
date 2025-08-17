@@ -1,17 +1,7 @@
 package com.easterfg.mae2a.common.items;
 
-import appeng.blockentity.AEBaseBlockEntity;
-import appeng.blockentity.crafting.PatternProviderBlockEntity;
-import appeng.blockentity.networking.CableBusBlockEntity;
-import appeng.helpers.patternprovider.PatternProviderLogicHost;
-import appeng.items.parts.PartItem;
-import appeng.parts.AEBasePart;
-import com.easterfg.mae2a.common.block.PatternProviderPlusBlockEntity;
-import com.easterfg.mae2a.common.definition.MAE2ABlockEntities;
-import com.easterfg.mae2a.common.definition.MAE2ABlocks;
-import com.easterfg.mae2a.common.definition.MAE2AParts;
-import com.easterfg.mae2a.common.menu.host.PatternProviderPlusLogicHost;
-import com.easterfg.mae2a.config.MAE2AConfig;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -25,14 +15,27 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.NotNull;
+
+import appeng.blockentity.AEBaseBlockEntity;
+import appeng.blockentity.crafting.PatternProviderBlockEntity;
+import appeng.blockentity.networking.CableBusBlockEntity;
+import appeng.helpers.patternprovider.PatternProviderLogicHost;
+import appeng.items.parts.PartItem;
+import appeng.parts.AEBasePart;
+
+import com.easterfg.mae2a.common.block.PatternProviderPlusBlockEntity;
+import com.easterfg.mae2a.common.definition.MAE2ABlockEntities;
+import com.easterfg.mae2a.common.definition.MAE2ABlocks;
+import com.easterfg.mae2a.common.definition.MAE2AParts;
+import com.easterfg.mae2a.common.menu.host.PatternProviderPlusLogicHost;
+import com.easterfg.mae2a.config.MAE2AConfig;
 
 public class ItemPatternProviderUpgrade extends Item {
     public ItemPatternProviderUpgrade(Properties pProperties) {
         super(pProperties);
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
         var level = context.getLevel();

@@ -23,6 +23,7 @@ import com.easterfg.mae2a.api.MainCreativeMod;
 import com.easterfg.mae2a.api.register.*;
 import com.easterfg.mae2a.client.MoreAE2AdditionsClient;
 import com.easterfg.mae2a.config.MAE2AConfig;
+import com.easterfg.mae2a.integration.appflux.AppFluxCommonLoad;
 import com.easterfg.mae2a.integration.eae.EAECommonLoad;
 import com.easterfg.mae2a.integration.wt.WTCommonLoad;
 import com.easterfg.mae2a.util.Platform;
@@ -91,6 +92,10 @@ public class MoreAE2Additions {
 
         if (Platform.isModLoaded("expatternprovider")) {
             EAECommonLoad.init();
+        }
+
+        if (Platform.isModLoaded("appflux")) {
+            AppFluxCommonLoad.init();
         }
     }
 }

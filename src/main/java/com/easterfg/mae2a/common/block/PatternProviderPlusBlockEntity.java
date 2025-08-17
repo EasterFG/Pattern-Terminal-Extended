@@ -30,7 +30,7 @@ public class PatternProviderPlusBlockEntity extends PatternProviderBlockEntity
 
     public PatternProviderPlusBlockEntity(BlockEntityType<?> blockEntityType, BlockPos pos, BlockState blockState) {
         super(blockEntityType, pos, blockState);
-        this.upgrades = UpgradeInventories.forMachine(MAE2ABlocks.PATTERN_PROVIDER_PLUS, 1, this::saveChanges);
+        this.upgrades = UpgradeInventories.forMachine(MAE2ABlocks.PATTERN_PROVIDER_PLUS, 2, this::saveChanges);
     }
 
     protected PatternProviderPlusLogic createLogic() {

@@ -12,6 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -22,6 +23,8 @@ import appeng.block.crafting.PushDirection;
 import appeng.menu.locator.MenuLocators;
 import appeng.util.InteractionUtil;
 import appeng.util.Platform;
+
+import com.easterfg.mae2a.integration.appflux.AppFluxCommonLoad;
 
 /**
  * @author EasterFG on 2025/4/3
@@ -45,6 +48,22 @@ public class PatternProviderPlusBlock extends AEBaseEntityBlock<PatternProviderP
         var be = this.getBlockEntity(level, pos);
         if (be != null) {
             be.getLogic().updateRedstoneState();
+            if (AppFluxCommonLoad.isLoad()) {
+                AppFluxCommonLoad.notifyNeighbor(be.getLogic(), pos, fromPos);
+            }
+        }
+    }
+
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
+        super.onNeighborChange(state, level, pos, neighbor);
+        if (!level.isClientSide()) {
+            if (AppFluxCommonLoad.isLoad()) {
+                var be = this.getBlockEntity(level, pos);
+                if (be != null) {
+                    AppFluxCommonLoad.notifyNeighbor(be.getLogic(), pos, neighbor);
+                }
+            }
         }
     }
 
