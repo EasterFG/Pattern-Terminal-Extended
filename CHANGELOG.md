@@ -1,3 +1,10 @@
+## v1.0.8
+### English
+1. add new config option "Upgrade White List" ([#8](https://github.com/EasterFG/More-AE2-Additions/issues/8))
+2. support applied flux "Induction card" ([#9](https://github.com/EasterFG/More-AE2-Additions/issues/9))
+### 中文
+1. 新增配置项: "升级白名单" ([#8](https://github.com/EasterFG/More-AE2-Additions/issues/8))
+2. 支持applied flux感应卡 ([#9](https://github.com/EasterFG/More-AE2-Additions/issues/9))
 ## v1.0.7
 ### English
 1. Fixed issues related to the template replacement logic in the Template Modifier Tool *(v1.0.6-hotfix)*.
@@ -15,18 +22,3 @@
 5. 新增配置项: 是否在样板供应器中显示样板产物数量
 6. 样板修改工具新增直接预览模式
 7. 样板修改工具显示优化, 现在会固定显示被禁用的样板主输出物品名称
-## v1.0.6
-### English
-1. Fix the display issue of the Pattern Provider Plus sidebar
-2. Fix issues related to Pattern Provider upgrades
-3. Fix the inability to open the UI for the Pattern Modification Tool on the server side
-4. Fix the issue where Insulated Tape cannot be used on the Pattern Provider Plus
-5. Add an invert mode to the Pattern Preview interface
-6. Display the current primary output count in the Pattern Provider Plus and Pattern Preview interfaces
-### 中文
-1. 修复样板供应器plus侧边栏显示问题
-2. 修复样板供应器升级相关问题
-3. 修复样板修改工具无法在服务器中开启UI的问题
-4. 修复封装胶带无法对样板供应器plus使用的问题
-5. 样板预览界面新增反选模式
-6. 样板供应器plus和样板预览界面显示当前主输出物品数量
